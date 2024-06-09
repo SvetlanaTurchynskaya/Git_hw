@@ -18,7 +18,7 @@ Task 1
 
   Результат должен быть округлен до 1 знака после запятой методом .toFixed(), про который надо почитать самим ;)
 */
-
+// 1.
 let bytes = 16565846;
 let result;
 
@@ -33,8 +33,34 @@ result = (bytes / (1024 * 1024 * 1024)).toFixed(1) + " Gb";
 } else {
 result = (bytes / (1024 * 1024 * 1024 * 1024)).toFixed(1) + " Tb";
 }
-
 console.log(result); 
+
+// While loop solution
+let bytes_2 = 16565846; 
+let unit = 'B';
+
+while(bytes_2 >= 1024 && unit !== 'TB') {
+switch(unit) {
+case 'B':
+bytes_2 /= 1024;
+unit = 'KB';
+break;
+case 'KB':
+bytes_2 /= 1024;
+unit = 'MB';
+break;
+case 'MB':
+bytes_2 /= 1024;
+unit = 'GB';
+break;
+case 'GB':
+bytes_2 /= 1024;
+unit = 'TB';
+break;
+}
+}
+bytes_2 = bytes_2.toFixed(1);
+console.log(`Результат: ${bytes_2} ${unit}`);
 
 /*
 Task 2.2
