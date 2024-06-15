@@ -45,19 +45,19 @@ Task.2
 // 2.1. 
 
 function getMySetPizza(myPizzas) {
-    const competitorPizzas = ['Peperoni', 'Caprichosa', 'Diablo', '4 cheeses', 'hawai'];
+    const competitorPizzas = ['Peperoni', 'Caprichosa', 'Diablo', '4 cheeses', 'hawai'].map(pizza => pizza.toLowerCase());
     let returnUniquePizzas = [];
     
     for (let pizza of myPizzas) {
-    if (competitorPizzas.indexOf(pizza) === -1) {
+    if (competitorPizzas.indexOf(pizza.toLowerCase()) === -1) {
         returnUniquePizzas.push(pizza);
     }
     }
      return returnUniquePizzas.length > 0 ? returnUniquePizzas : null;
     }
 
-    console.log(getMySetPizza(['Peperoni', '4 seasons',  'Barbeque', 'Hawai']));
-    console.log(getMySetPizza(['Peperoni', 'Caprichosa', 'Diablo', '4 cheeses', 'hawai']));
+    console.log(getMySetPizza(['Peperoni', '4 seasons',  'barbeque', 'Hawai']));
+    console.log(getMySetPizza(['Peperoni', 'Caprichosa', 'diablo', '4 cheeses', 'hawai']));
 
 // 2.2. Функция для поиска слова с наибольшим количеством букв:
 
@@ -94,3 +94,4 @@ Task.3
     и так пока в тексте не останется двух одинаковых букв стоящих рядом (через пробел и другой знак препинания можно)
     Пример: aabc => bbc => cc => d
 */
+
