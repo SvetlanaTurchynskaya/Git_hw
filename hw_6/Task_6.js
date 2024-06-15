@@ -60,14 +60,34 @@ function getMySetPizza(myPizzas) {
     console.log(getMySetPizza(['Peperoni', 'Caprichosa', 'diablo', '4 cheeses', 'hawai']));
 
 // 2.2. Функция для поиска слова с наибольшим количеством букв:
-
+// case 1.
 function longestWord(sentence) {
     const words = sentence.split(' ');
     const maxLength = Math.max(...words.map(word => word.length));
     const longestWords = words.filter(word => word.length === maxLength);
+
     console.log(longestWords.join(', '));
     }
-    longestWord('hghfgdfdsfsd jhg hgfd') // hghfgdfdsfsd
+    
+    longestWord('the longest word in the phrase') // longest
+
+// case 2.
+function longestWord2(sentence) {
+    const result2 = sentence
+    .trim()
+    .split(" ")
+    .reduce((res, word) => {
+      if (!res[0] || word.length > res[0].length) {
+        res = [word];
+      } else if (word.length === res[0].length) {
+        res.push(word);
+      }
+      return res;
+    }, []);
+  return result2.length > 1 ? result2 : result2[0];
+}
+
+console.log(longestWord2('the longest word in the phrase')); // longest
 
 // 2.3. Функция для удаления дубликатов из массива чисел:
 
